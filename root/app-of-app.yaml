@@ -9,7 +9,9 @@ spec:
   source:
     repoURL: 'https://github.com/k8strainer/argo-app-of-app.git'
     targetRevision: main
-    path: .  # In diesem Ordner liegt das Root-Manifests selbst (app-of-app.yaml) + die beiden Child-App-Dateien
+    path: root  # In diesem Ordner liegt das Root-Manifests selbst (app-of-app.yaml) + die beiden Child-App-Dateien
+    directory:
+       recurse: true
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: openshift-gitops
