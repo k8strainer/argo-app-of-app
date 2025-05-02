@@ -7,7 +7,7 @@ metadata:
 spec:
   project: default
   source:
-    repoURL: 'https://github.com/k8strainer/argo-app-of-apps.git'
+    repoURL: 'https://github.com/k8strainer/argo-app-of-app.git'
     targetRevision: HEAD
     path: .  # In diesem Ordner liegt das Root-Manifests selbst (app-of-app.yaml) + die beiden Child-App-Dateien
   destination:
