@@ -4,7 +4,6 @@ metadata:
   name: frontend-deployment
   namespace: app-of-app-frontend
 spec:
-  serviceAccountName: app-of-app
   replicas: 1
   selector:
     matchLabels:
@@ -14,6 +13,7 @@ spec:
       labels:
         app: frontend
     spec:
+      serviceAccountName: app-of-app
       containers:
       - name: frontend
         image: mirror.gcr.io/library/nginx:1.23
