@@ -8,7 +8,7 @@ spec:
   project: default
   source:
     repoURL: 'https://github.com/k8strainer/argo-app-of-app.git'
-    targetRevision: HEAD
+    targetRevision: main
     path: child-apps/backend
   destination:
     server: 'https://kubernetes.default.svc'
