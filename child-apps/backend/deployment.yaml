@@ -13,8 +13,16 @@ spec:
       labels:
         app: backend
     spec:
+      securityContext:
+        runAsNonRoot: false
       containers:
       - name: backend
         image: gcr.io/cluster-01-271319/docker.io/library/httpd:latest-1
         ports:
-        - containerPort: 8080
+        - containerPort: 80
+        securityContext:
+          allowPrivilegeEscalation: false
+          capabilities:
+            drop: ["CHOWN", "MKNOD"]
+          seccompProfile:
+            type: "RuntimeDefault"
