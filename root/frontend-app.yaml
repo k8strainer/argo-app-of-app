@@ -11,7 +11,7 @@ spec:
     path: child-apps/frontend
   destination:
     server: 'https://kubernetes.default.svc'
-    namespace: dev-frontend
+    namespace: app-of-app-frontend
   syncPolicy:
     automated:
       prune: true
