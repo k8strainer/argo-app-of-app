@@ -12,11 +12,10 @@ spec:
     path: .  # In diesem Ordner liegt das Root-Manifests selbst (app-of-app.yaml) + die beiden Child-App-Dateien
   destination:
     server: 'https://kubernetes.default.svc'
-    namespace: app-of-app-root
+    namespace: openshift-gitops
   syncPolicy:
     automated:
       prune: true
       selfHeal: true 
-    syncOptions:
-    - CreateNamespace=true
+
       
