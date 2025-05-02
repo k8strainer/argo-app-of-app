@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: root-app
+  namespace: argocd
+spec:
+  project: default
+  source:
+    repoURL: 'https://github.com/example/my-argo-app-of-apps.git'
+    targetRevision: HEAD
+    path: .  # In diesem Ordner liegt das Root-Manifests selbst (app-of-app.yaml) + die beiden Child-App-Dateien
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: dev-root
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
