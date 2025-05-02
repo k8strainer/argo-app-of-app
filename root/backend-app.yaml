@@ -4,6 +4,8 @@ metadata:
   name: backend-app
   #namespace: argocd
   namespace: openshift-gitops 
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
 spec:
   project: default
   source:
