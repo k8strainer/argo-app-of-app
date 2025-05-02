@@ -4,6 +4,7 @@ metadata:
   name: frontend-deployment
   namespace: app-of-app-frontend
 spec:
+  serviceAccountName: app-of-app
   replicas: 1
   selector:
     matchLabels:
