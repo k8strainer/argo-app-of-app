@@ -3,6 +3,11 @@ kind: Namespace
 metadata: 
   name: app-of-app-frontend
 ---
+apiVersion: v1
+kind: ServiceAccount
+metadata: 
+  name: app-of-app
+---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
@@ -16,4 +21,35 @@ subjects:
   - kind: ServiceAccount
     name: openshift-gitops-argocd-application-controller
     namespace: openshift-gitops
+
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: use-anyuid-scc
+rules:
+- apiGroups:
+  - security.openshift.io
+  resourceNames:
+  - anyuid
+  resources:
+  - securitycontextconstraints
+  verbs:
+  - use
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: use-anyuid-scc
+  namespace: app-of-app-frontend
+subjects:
+- kind: ServiceAccount
+  name: app-of-app
+  namespace: app-of-app-frontend
+roleRef:
+  kind: ClusterRole
+  name: use-anyuid-scc
+  apiGroup: rbac.authorization.k8s.io
+
+
 
