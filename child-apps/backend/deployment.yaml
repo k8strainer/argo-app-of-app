@@ -13,6 +13,7 @@ spec:
       labels:
         app: backend
     spec:
+      serviceAccountName: app-of-app
       containers:
       - name: backend
         image: mirror.gcr.io/library/nginx:1.23
