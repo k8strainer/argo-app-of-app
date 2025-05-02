@@ -12,8 +12,11 @@ spec:
     path: .  # In diesem Ordner liegt das Root-Manifests selbst (app-of-app.yaml) + die beiden Child-App-Dateien
   destination:
     server: 'https://kubernetes.default.svc'
-    namespace: dev-root
+    namespace: app-of-app-root
   syncPolicy:
     automated:
       prune: true
-      selfHeal: true
+      selfHeal: true 
+    syncOptions:
+    - CreateNamespace=true
+      
