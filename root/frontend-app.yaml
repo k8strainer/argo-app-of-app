@@ -3,7 +3,9 @@ kind: Application
 metadata:
   name: frontend-app
   #namespace: argocd
-  namespace: openshift-gitops 
+  namespace: openshift-gitops
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
 spec:
   project: default
   source:
